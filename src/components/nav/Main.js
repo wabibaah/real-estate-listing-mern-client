@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/auth";
@@ -9,6 +10,7 @@ function Main() {
   const [dropdown, setDropdown] = useState(false);
   const navigate = useNavigate();
   console.log(auth);
+
   const logout = () => {
     setAuth({ user: null, token: "", refreshToken: "" });
     localStorage.removeItem("auth");
@@ -18,11 +20,23 @@ function Main() {
   // auth as a whole is like an object that is why we do the JSON parse or stringify on it. so auth.user gives us the user
   const loggedIn = auth.user !== null && auth.token !== "" && auth.refreshToken !== "";
 
+  const handlePostAdClick = () => {
+    if (loggedIn) {
+      navigate("/ad/create");
+    } else {
+      navigate("/login");
+      toast.error("Please Log in to create an Ad");
+    }
+  };
+
   return (
     <nav className="nav d-flex justify-content-between p-2 lead">
       <NavLink to="/" className="nav-link">
         Home
       </NavLink>
+      <a className="nav-link pointer" onClick={handlePostAdClick}>
+        Post Ad
+      </a>
       {!loggedIn ? (
         <>
           <NavLink to="/login" className="nav-link">
