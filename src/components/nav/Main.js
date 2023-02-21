@@ -9,7 +9,6 @@ function Main() {
   const [auth, setAuth] = useAuth();
   const [dropdown, setDropdown] = useState(false);
   const navigate = useNavigate();
-  console.log(auth);
 
   const logout = () => {
     setAuth({ user: null, token: "", refreshToken: "" });
