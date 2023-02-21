@@ -2,6 +2,7 @@ import { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { GOOGLE_PLACES_KEY } from "../../config";
 import CurrencyInput from "react-currency-input-field";
+import ImageUpload from "./ImageUpload";
 
 function AdForm({ action, type }) {
   const [ad, setAd] = useState({
@@ -21,6 +22,9 @@ function AdForm({ action, type }) {
   console.log(ad);
   return (
     <>
+      <div className="mb-3 form-control">
+        <ImageUpload ad={ad} setAd={setAd} />
+      </div>
       <div className="mb-3 form-control">
         <GooglePlacesAutocomplete
           apiKey={GOOGLE_PLACES_KEY}
