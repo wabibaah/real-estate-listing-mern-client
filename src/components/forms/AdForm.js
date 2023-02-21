@@ -1,10 +1,14 @@
 import { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import { GOOGLE_PLACES_KEY } from "../../config";
 import CurrencyInput from "react-currency-input-field";
 import ImageUpload from "./ImageUpload";
 
 function AdForm({ action, type }) {
+  const navigate = useNavigate();
   const [ad, setAd] = useState({
     photos: [],
     uploading: false,
@@ -14,12 +18,28 @@ function AdForm({ action, type }) {
     bathrooms: "",
     carpark: "",
     landSize: "",
-    type: "",
+    type,
+    action,
     title: "",
     description: "",
     loading: false,
   });
-  console.log(ad);
+  const handleClick = async () => {
+    try {
+      setAd({ ...ad, loading: true });
+      const { data } = await axios.post("/ad/create", ad);
+      if (data?.error) {
+        toast.error(data.error);
+        setAd({ ...ad, loading: false });
+        navigate("/dashboard");
+      } else {
+        toast.success("Ad created successfully");
+        setAd({ ...ad, loading: false });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div className="mb-3 form-control">
@@ -38,6 +58,7 @@ function AdForm({ action, type }) {
           }}
         />
       </div>
+
       <CurrencyInput
         placeholder="Enter price"
         defaultValue={ad.price}
@@ -96,7 +117,9 @@ function AdForm({ action, type }) {
         placeholder="Enter description"
       ></textarea>
 
-      <button className="btn btn-primary">Submit</button>
+      <button onClick={handleClick} className="btn btn-primary">
+        Submit
+      </button>
     </>
   );
 }
