@@ -35,6 +35,7 @@ function AdForm({ action, type }) {
       } else {
         toast.success("Ad created successfully");
         setAd({ ...ad, loading: false });
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log(err);
@@ -65,32 +66,38 @@ function AdForm({ action, type }) {
         className="form-control mb-3"
         onValueChange={(value) => setAd({ ...ad, price: value })}
       />
-      <input
-        type="number"
-        min="0"
-        className="form-control mb-3 "
-        placeholder="Enter how many bedrooms"
-        value={ad.bedrooms}
-        onChange={(e) => setAd({ ...ad, bedrooms: e.target.value })}
-      />
+      {type === "House" ? (
+        <>
+          <input
+            type="number"
+            min="0"
+            className="form-control mb-3 "
+            placeholder="Enter how many bedrooms"
+            value={ad.bedrooms}
+            onChange={(e) => setAd({ ...ad, bedrooms: e.target.value })}
+          />
 
-      <input
-        type="number"
-        min="0"
-        className="form-control mb-3 "
-        placeholder="Enter how many bathrooms"
-        value={ad.bathrooms}
-        onChange={(e) => setAd({ ...ad, bathrooms: e.target.value })}
-      />
+          <input
+            type="number"
+            min="0"
+            className="form-control mb-3 "
+            placeholder="Enter how many bathrooms"
+            value={ad.bathrooms}
+            onChange={(e) => setAd({ ...ad, bathrooms: e.target.value })}
+          />
 
-      <input
-        type="number"
-        min="0"
-        className="form-control mb-3 "
-        placeholder="Enter how many carparks"
-        value={ad.carpark}
-        onChange={(e) => setAd({ ...ad, carpark: e.target.value })}
-      />
+          <input
+            type="number"
+            min="0"
+            className="form-control mb-3 "
+            placeholder="Enter how many carparks"
+            value={ad.carpark}
+            onChange={(e) => setAd({ ...ad, carpark: e.target.value })}
+          />
+        </>
+      ) : (
+        ""
+      )}
 
       <input
         type="text"
@@ -117,8 +124,8 @@ function AdForm({ action, type }) {
         placeholder="Enter description"
       ></textarea>
 
-      <button onClick={handleClick} className="btn btn-primary">
-        Submit
+      <button onClick={handleClick} className="btn btn-primary mb-5" disabled={ad.loading}>
+        {ad.loading ? "Saving" : "Submit"}
       </button>
     </>
   );
