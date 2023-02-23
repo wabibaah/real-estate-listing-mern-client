@@ -53,3 +53,16 @@ click on bucket owner prefered
 click on save changes
 edit block public access (bucket settings), click on the edit button
 uncheck "Block all public access"
+
+GENERATING A GOOGLE MAPS KEY
+google "google developer console"
+make sure that your project is choosen , if not choose the project name correctly
+click on enable apis and search for "maps"
+click on "maps javascript api"
+make sure it is enabled, if not , you must find a way to enable it and also put in your bank card details
+he went to a place and i saw "enabled apis" , a lot of them came up . but anyway this is just by the way
+on the left side bar, click on "APIs", "credentials",
+the name is "Maps API Key" or maybe this is what we used for the places and we can't use it , we now want one for maps addresses
+in the actions three dots, click on it , and click on "edit api key"
+edit the name and change "Maps API Key" to "Places API Key" and save.
+click on "create credentials" and select "API Key", change the name to "Maps API Key"

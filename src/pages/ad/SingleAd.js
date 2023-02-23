@@ -9,6 +9,7 @@ import img6 from "../../img/image11.jpg";
 import AdFeatures from "../../components/cards/AdFeatures";
 import { formatNumber } from "../../helpers/ad";
 import LikeUnlike from "../../components/misc/LikeUnlike";
+import MapCard from "../../components/cards/MapCard";
 
 dayjs.extend(relativeTime);
 
@@ -76,6 +77,13 @@ function SingleAd() {
           </div>
           <div className="col-lg-8">
             <ImageGallery photos={generatePhotosArray(ad?.photos)} />
+          </div>
+        </div>
+      </div>
+      <div className="container mb-5">
+        <div className="row">
+          <div className="col-lg-8 offset-lg-2 mt-3">
+            <MapCard ad={ad} />
           </div>
         </div>
       </div>
