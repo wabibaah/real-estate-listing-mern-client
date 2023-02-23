@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/auth";
 
 function Login() {
@@ -9,6 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [auth, setAuth] = useAuth();
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -26,7 +27,8 @@ function Login() {
         setAuth(data);
         toast.success("Successfully logged in as a user");
         setLoading(false);
-        navigate("/"); // look at other websites and create a special for this , i don't think the home page is good enough
+        // navigate("/"); // look at other websites and create a special for this , i don't think the home page is good enough
+        location?.state !== null ? navigate(location.state) : navigate("/dashboard");
       }
     } catch (err) {
       toast.error("Something went wrong");

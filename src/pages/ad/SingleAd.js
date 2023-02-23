@@ -8,6 +8,7 @@ import ImageGallery from "../../components/misc/ImageGallery";
 import img6 from "../../img/image11.jpg";
 import AdFeatures from "../../components/cards/AdFeatures";
 import { formatNumber } from "../../helpers/ad";
+import LikeUnlike from "../../components/misc/LikeUnlike";
 
 dayjs.extend(relativeTime);
 
@@ -59,9 +60,12 @@ function SingleAd() {
       <div className="container-fluid">
         <div className="row mt-2">
           <div className="col-lg-4">
-            <button className="btn btn-primary mt-2 disabled">
-              {ad.type} for {ad.action}
-            </button>
+            <div className="d-flex justify-content-between">
+              <button className="btn btn-primary mt-2 disabled">
+                {ad.type} for {ad.action}
+              </button>
+              <LikeUnlike ad={ad} />
+            </div>
             <div className="my-4">
               {ad?.sold ? "Off Market" : "In Market"}
               <h1>{ad.address}</h1>
