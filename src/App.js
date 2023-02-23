@@ -17,6 +17,7 @@ import RentHouse from "./pages/user/ad/RentHouse";
 import RentLand from "./pages/user/ad/RentLand";
 import SellHouse from "./pages/user/ad/SellHouse";
 import SellLand from "./pages/user/ad/SellLand";
+import SingleAd from "./pages/ad/SingleAd";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/auth/account-activate/:token" element={<AccountActivate />} />
           <Route path="/auth/forgot-password" element={<ForgotPassword />} />
           <Route path="/auth/access-account/:resetCode" element={<AccessAccount />} />
+          <Route path="/ad/:slug" element={<SingleAd />} />
           <Route path="/" element={<PrivateRoute />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="ad/create" element={<AdCreate />} />
