@@ -72,7 +72,7 @@ function AdForm({ action, type }) {
             type="number"
             min="0"
             className="form-control mb-3 "
-            placeholder="Enter how many bedrooms"
+            placeholder="Enter number bedrooms"
             value={ad.bedrooms}
             onChange={(e) => setAd({ ...ad, bedrooms: e.target.value })}
           />
@@ -81,7 +81,7 @@ function AdForm({ action, type }) {
             type="number"
             min="0"
             className="form-control mb-3 "
-            placeholder="Enter how many bathrooms"
+            placeholder="Enter number bathrooms"
             value={ad.bathrooms}
             onChange={(e) => setAd({ ...ad, bathrooms: e.target.value })}
           />
@@ -90,7 +90,7 @@ function AdForm({ action, type }) {
             type="number"
             min="0"
             className="form-control mb-3 "
-            placeholder="Enter how many carparks"
+            placeholder="Enter number carparks"
             value={ad.carpark}
             onChange={(e) => setAd({ ...ad, carpark: e.target.value })}
           />
