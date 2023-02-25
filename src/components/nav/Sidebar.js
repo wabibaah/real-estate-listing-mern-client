@@ -15,6 +15,16 @@ function Sidebar() {
             Create Ad
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to="/user/profile" className="nav-link">
+            Profile
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to="/user/settings" className="nav-link">
+            Settings
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

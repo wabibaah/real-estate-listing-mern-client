@@ -11,6 +11,7 @@ import AdFeatures from "../../components/cards/AdFeatures";
 import { formatNumber } from "../../helpers/ad";
 import LikeUnlike from "../../components/misc/LikeUnlike";
 import MapCard from "../../components/cards/MapCard";
+import AdCard from "../../components/cards/AdCard";
 
 dayjs.extend(relativeTime);
 
@@ -95,6 +96,15 @@ function SingleAd() {
 
             <HTMLRenderer html={ad?.description.replaceAll(".", "<br/><br />")} />
           </div>
+        </div>
+      </div>
+      <div className="container-fluid">
+        <h4 className="text-center mb-3">Related Properties</h4>
+        <hr style={{ width: "33%" }} />
+        <div className="row">
+          {relatedAd?.map((relAd) => (
+            <AdCard key={relAd._id} ad={relAd} />
+          ))}
         </div>
       </div>
     </>

@@ -18,6 +18,9 @@ import RentLand from "./pages/user/ad/RentLand";
 import SellHouse from "./pages/user/ad/SellHouse";
 import SellLand from "./pages/user/ad/SellLand";
 import SingleAd from "./pages/ad/SingleAd";
+import Footer from "./components/nav/Footer";
+import Profile from "./pages/user/Profile";
+import Settings from "./pages/user/Settings";
 
 function App() {
   return (
@@ -40,8 +43,11 @@ function App() {
             <Route path="ad/create/rent/Land" element={<RentLand />} />
             <Route path="ad/create/sell/House" element={<SellHouse />} />
             <Route path="ad/create/sell/Land" element={<SellLand />} />
+            <Route path="user/profile" element={<Profile />} />
+            <Route path="user/settings" element={<Settings />} />
           </Route>
         </Routes>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );
