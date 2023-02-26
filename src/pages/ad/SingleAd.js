@@ -12,6 +12,7 @@ import { formatNumber } from "../../helpers/ad";
 import LikeUnlike from "../../components/misc/LikeUnlike";
 import MapCard from "../../components/cards/MapCard";
 import AdCard from "../../components/cards/AdCard";
+import ContactSeller from "../../components/forms/ContactSeller";
 
 dayjs.extend(relativeTime);
 
@@ -97,6 +98,9 @@ function SingleAd() {
             <HTMLRenderer html={ad?.description.replaceAll(".", "<br/><br />")} />
           </div>
         </div>
+      </div>
+      <div className="container mb-5">
+        <ContactSeller ad={ad} />
       </div>
       <div className="container-fluid">
         <h4 className="text-center mb-3">Related Properties</h4>
