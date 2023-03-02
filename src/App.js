@@ -21,6 +21,7 @@ import SingleAd from "./pages/ad/SingleAd";
 import Footer from "./components/nav/Footer";
 import Profile from "./pages/user/Profile";
 import Settings from "./pages/user/Settings";
+import AdEdit from "./pages/user/ad/AdEdit";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path="ad/create/sell/Land" element={<SellLand />} />
             <Route path="user/profile" element={<Profile />} />
             <Route path="user/settings" element={<Settings />} />
+            <Route path="user/edit-ad/:slug" element={<AdEdit />} />
           </Route>
         </Routes>
         <Footer />
