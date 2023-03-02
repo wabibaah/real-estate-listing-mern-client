@@ -84,6 +84,24 @@ function AdEdit({ action, type }) {
       console.log(err);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      setAd({ ...ad, loading: true });
+      const adId = ad._id;
+      const { data } = await axios.delete(`/ad/delete/${adId}`);
+      if (data?.error) {
+        toast.error(data.error);
+        setAd({ ...ad, loading: false });
+      } else {
+        toast.success("Ad deleted successfully");
+        setAd({ ...ad, loading: false });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <h1 className="">Edit Ad</h1>
@@ -197,9 +215,14 @@ function AdEdit({ action, type }) {
           ""
         )}
 
-        <button onClick={handleClick} className="btn btn-primary mb-5" disabled={ad.loading}>
-          {ad.loading ? "Saving" : "Submit"}
-        </button>
+        <div className="d-flex justify-content-between">
+          <button onClick={handleClick} className="btn btn-primary mb-5" disabled={ad.loading}>
+            {ad.loading ? "Saving..." : "Submit"}
+          </button>
+          <button onClick={handleDelete} className="btn btn-danger mb-5" disabled={ad.loading}>
+            {ad.loading ? "Deleting..." : "Delete"}
+          </button>
+        </div>
       </div>
     </div>
   );
