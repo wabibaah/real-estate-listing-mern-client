@@ -25,6 +25,17 @@ function Sidebar() {
             Settings
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to="/user/wishlist" className="nav-link">
+            Wishlist
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to="/user/enqiries" className="nav-link">
+            Enquired Properties
+            {/* you can even have a way of know whether they were replied or not */}
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
