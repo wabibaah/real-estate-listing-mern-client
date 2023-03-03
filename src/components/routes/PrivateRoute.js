@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
-import React from "react";
+import RedirectRoute from "./RedirectRoute";
 
 function PrivateRoute() {
   const [auth, setAuth] = useAuth();
@@ -24,7 +24,7 @@ function PrivateRoute() {
     }
   };
 
-  return ok ? <Outlet /> : "";
+  return ok ? <Outlet /> : <RedirectRoute />;
 }
 
 export default PrivateRoute;
