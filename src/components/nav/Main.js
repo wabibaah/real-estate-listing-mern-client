@@ -33,6 +33,18 @@ function Main() {
       <NavLink to="/" className="nav-link">
         Home
       </NavLink>
+
+      <NavLink to="/buy" className="nav-link">
+        Buy
+      </NavLink>
+
+      <NavLink to="/rent" className="nav-link">
+        Rent
+      </NavLink>
+
+      <NavLink to="/agents" className="nav-link">
+        Agents
+      </NavLink>
       <a className="nav-link pointer" onClick={handlePostAdClick}>
         Post Ad
       </a>

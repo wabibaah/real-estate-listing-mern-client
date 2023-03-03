@@ -45,3 +45,5 @@ function Home() {
 }
 
 export default Home;
+
+// so even in the home the auth setAuth is not used

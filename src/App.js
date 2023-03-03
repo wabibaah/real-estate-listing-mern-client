@@ -24,6 +24,10 @@ import Settings from "./pages/user/Settings";
 import AdEdit from "./pages/user/ad/AdEdit";
 import Wishlist from "./pages/user/Wishlist";
 import Enquiries from "./pages/user/Enquiries";
+import Agents from "./pages/Agents";
+import Agent from "./pages/Agent";
+import Buy from "./pages/Buy";
+import Rent from "./pages/Rent";
 
 function App() {
   return (
@@ -39,6 +43,11 @@ function App() {
           <Route path="/auth/forgot-password" element={<ForgotPassword />} />
           <Route path="/auth/access-account/:resetCode" element={<AccessAccount />} />
           <Route path="/ad/:slug" element={<SingleAd />} />
+          <Route path="/agents" element={<Agents />} />
+          <Route path="/agent/:username" element={<Agent />} />
+          <Route path="/buy" element={<Buy />} />
+          <Route path="/rent" element={<Rent />} />
+
           <Route path="/" element={<PrivateRoute />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="ad/create" element={<AdCreate />} />

@@ -6,9 +6,11 @@ import { toast } from "react-hot-toast";
 import { GOOGLE_PLACES_KEY } from "../../config";
 import CurrencyInput from "react-currency-input-field";
 import ImageUpload from "./ImageUpload";
+import { useAuth } from "../../context/auth";
 
 function AdForm({ action, type }) {
   const navigate = useNavigate();
+  const [auth, setAuth] = useAuth();
   const [ad, setAd] = useState({
     photos: [],
     uploading: false,
@@ -33,9 +35,19 @@ function AdForm({ action, type }) {
         setAd({ ...ad, loading: false });
         navigate("/dashboard");
       } else {
+        // update use in context
+        setAuth({ ...auth, user: data.user });
+
+        // update user in local storage
+        const fromLS = JSON.parse(localStorage.getItem("auth"));
+        fromLS.user = data.user;
+        localStorage.setItem("auth", JSON.stringify(fromLS));
+
         toast.success("Ad created successfully");
         setAd({ ...ad, loading: false });
-        navigate("/dashboard");
+
+        // reload page on redirect , i think this forced the page the page to relaod to pls take note
+        window.location.href = "/dashboard";
       }
     } catch (err) {
       console.log(err);
