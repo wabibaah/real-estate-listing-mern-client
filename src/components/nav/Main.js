@@ -30,19 +30,22 @@ function Main() {
 
   return (
     <nav className="nav d-flex justify-content-between p-2 lead">
-      <NavLink to="/" className="nav-link">
+      <NavLink to="/" className="nav-link" aria-current="page">
         Home
       </NavLink>
 
-      <NavLink to="/buy" className="nav-link">
+      <NavLink to="/search" className="nav-link" aria-current="page">
+        Search
+      </NavLink>
+      <NavLink to="/buy" className="nav-link" aria-current="page">
         Buy
       </NavLink>
 
-      <NavLink to="/rent" className="nav-link">
+      <NavLink to="/rent" className="nav-link" aria-current="page">
         Rent
       </NavLink>
 
-      <NavLink to="/agents" className="nav-link">
+      <NavLink to="/agents" className="nav-link" aria-current="page">
         Agents
       </NavLink>
       <a className="nav-link pointer" onClick={handlePostAdClick}>
@@ -50,10 +53,10 @@ function Main() {
       </a>
       {!loggedIn ? (
         <>
-          <NavLink to="/login" className="nav-link">
+          <NavLink to="/login" className="nav-link" aria-current="page">
             Login
           </NavLink>
-          <NavLink to="/register" className="nav-link">
+          <NavLink to="/register" className="nav-link" aria-current="page">
             Register
           </NavLink>
         </>

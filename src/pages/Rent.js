@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+import SearchForm from "../components/forms/SearchForm";
 import AdCard from "../components/cards/AdCard";
 
 function Rent() {
@@ -18,6 +20,7 @@ function Rent() {
 
   return (
     <div>
+      <SearchForm />
       <h1 className="display-1 bg-primary text-light p-5">For Rent</h1>
       <div className="container">
         <div className="row">
